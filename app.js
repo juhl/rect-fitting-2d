@@ -1,7 +1,7 @@
 App = function() {
-	var canvas;
-	var ctx;
-	var mouseDown;
+    var canvas;
+    var ctx;
+    var mouseDown;
 
     var polyVerts = [];
     var coa = [];
@@ -225,14 +225,14 @@ App = function() {
         center[1] += axis[1][1] * (mins[1] + maxs[1]) * 0.5;
     }
 
-	function getMousePoint(e) {
-		return { x: e.clientX - canvas.offsetLeft, y: e.clientY - canvas.offsetTop } 
-	}
+    function getMousePoint(e) {
+        return { x: e.clientX - canvas.offsetLeft, y: e.clientY - canvas.offsetTop } 
+    }
 
-	function onMouseDown(e) {
-		mouseDown = true;
+    function onMouseDown(e) {
+        mouseDown = true;
 
-		var point = getMousePoint(e);
+        var point = getMousePoint(e);
         polyVerts[polyVerts.length] = canvasToWorld([point.x, point.y]);
 
         calcVarianceProperties();
@@ -240,22 +240,22 @@ App = function() {
         calcExtents();
 
         updateScreen();
-	}
+    }
 
-	function onMouseUp(e) { 
-		if (mouseDown) {
-			mouseDown = false;
+    function onMouseUp(e) { 
+	    if (mouseDown) {
+            mouseDown = false;
 		}
 	}
 
-	function onMouseMove(e) {
-		var point = getMousePoint(e);
-		if (mouseDown) {
+    function onMouseMove(e) {
+        var point = getMousePoint(e);
+        if (mouseDown) {
             polyVerts[polyVerts.length] = canvasToWorld([point.x, point.y]);
 
             updateScreen();
-		}
-	}
+        }
+    }
 
     function touchHandler(e) {
         var touches = e.changedTouches;
