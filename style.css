@@ -1,0 +1,44 @@
+html, body {
+  margin:0px 0px; padding:0px;
+  text-align:center;
+}
+div#content {
+  margin: 0px auto;
+  text-align: center;
+  vertical-align: middle;
+}
+div#screen {
+  margin: 0px auto;
+  border: 1px solid black;
+  padding: 4px;
+  width: 960px;
+  height: 512px;
+  background-color: white;
+}
+div#info {
+  margin: 16px auto;
+  padding: 10px;
+  width: 630px;
+  text-align: left;
+  background-color: #eeeeee;
+  -webkit-border-radius: .4em;
+  -moz-border-radius: .4em;
+  border-radius: .4em;
+}
+canvas {
+  cursor: crosshair;
+}
+header {
+  padding-top: 0px;
+  text-align: center;
+  line-height: 1.5;
+  font: 24px 'Lucidia Grande', 'Lucidia Sans Unicode';
+  text-shadow: 2px 2px 4px #222;
+}
+footer {
+  padding-top: 0px;
+  text-align: center;
+  line-height: 1.5;
+  font: 11px 'Lucidia Grande', 'Lucidia Sans Unicode';
+  color: #404040;
+}
