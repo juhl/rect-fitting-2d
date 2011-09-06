@@ -251,7 +251,11 @@ App = function() {
     function onMouseMove(e) {
         var point = getMousePoint(e);
         if (mouseDown) {
-            polyVerts[polyVerts.length] = canvasToWorld([point.x, point.y]);
+            polyVerts[polyVerts.length - 1] = canvasToWorld([point.x, point.y]);
+
+            calcVarianceProperties();
+            calcAxis();
+            calcExtents();
 
             updateScreen();
         }
