@@ -3,7 +3,7 @@ App = function() {
 	var ctx;
 	var mouseDown;
 
-	var polyVerts = [];
+    var polyVerts = [];
     var coa = [];
     var variance = [];
     var axis = [];
@@ -11,22 +11,22 @@ App = function() {
     var extents = [];
 
 	function main() {
-		canvas = document.getElementById("canvas");
-		if (!canvas.getContext) {
-			alert("Couldn't get canvas object !");
-		}
+        canvas = document.getElementById("canvas");
+        if (!canvas.getContext) {
+            alert("Couldn't get canvas object !");
+        }
 
-		ctx = canvas.getContext("2d");
+        ctx = canvas.getContext("2d");
 
-		canvas.addEventListener("mousedown", function(e) { onMouseDown(e) }, false);
-		canvas.addEventListener("mouseup", function(e) { onMouseUp(e) }, false);
-		canvas.addEventListener("mousemove", function(e) { onMouseMove(e) }, false);
+        canvas.addEventListener("mousedown", function(e) { onMouseDown(e) }, false);
+        canvas.addEventListener("mouseup", function(e) { onMouseUp(e) }, false);
+        canvas.addEventListener("mousemove", function(e) { onMouseMove(e) }, false);
 
         canvas.addEventListener("touchstart", touchHandler, false);
         canvas.addEventListener("touchend", touchHandler, false);
         canvas.addEventListener("touchmove", touchHandler, false);
         canvas.addEventListener("touchcancel", touchHandler, false);
-	}
+    }
 
     function updateScreen() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -44,17 +44,6 @@ App = function() {
     function worldToCanvas(xy) {
         return [xy[0] + canvas.width / 2, canvas.height / 2 - xy[1]];
     }
-
-	function drawAxis() {
-		ctx.strokeStyle = "#000";
-		ctx.beginPath();
-		ctx.moveTo(0, canvas.height/2);
-		ctx.lineTo(canvas.width, canvas.height/2);
-		ctx.moveTo(canvas.width/2, 0);
-        ctx.lineTo(canvas.width/2, canvas.height);
-		ctx.stroke();
-        ctx.closePath();
-	}
 
     function drawFitRect() {
         var extvec = [];
@@ -87,21 +76,21 @@ App = function() {
     }
 
     // draw counter clockwise polyVerts
-	function drawPolygon() {
-		ctx.fillStyle = "#AAF";
+    function drawPolygon() {
+        ctx.fillStyle = "#AAF";
         ctx.strokeStyle = "#338";
         ctx.lineWidth = 2;
-		ctx.beginPath();
+        ctx.beginPath();
 
         var cv = worldToCanvas(polyVerts[0]);
-		ctx.moveTo(cv[0], cv[1]);
-		for (var i = 1; i < polyVerts.length; i++) {
+        ctx.moveTo(cv[0], cv[1]);
+        for (var i = 1; i < polyVerts.length; i++) {
             cv = worldToCanvas(polyVerts[i]);
-			ctx.lineTo(cv[0], cv[1]);
-		}
+            ctx.lineTo(cv[0], cv[1]);
+        }
         cv = worldToCanvas(polyVerts[0]);
-		ctx.lineTo(cv[0], cv[1]);
-		ctx.fill();
+        ctx.lineTo(cv[0], cv[1]);
+        ctx.fill();
         ctx.stroke();
         ctx.closePath();
 
@@ -118,7 +107,7 @@ App = function() {
         cv = worldToCanvas(polyVerts[polyVerts.length - 1]);
         ctx.arc(cv[0], cv[1], 3, 0, Math.PI*2, true);
         ctx.fill();
-	}
+    }
 
     function clearPolygon() {
         polyVerts.length = 0;
