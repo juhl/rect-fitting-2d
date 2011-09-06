@@ -10,7 +10,7 @@ App = function() {
     var center = [];
     var extents = [];
 
-	function main() {
+    function main() {
         canvas = document.getElementById("canvas");
         if (!canvas.getContext) {
             alert("Couldn't get canvas object !");
