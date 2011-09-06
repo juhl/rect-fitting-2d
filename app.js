@@ -188,8 +188,8 @@ App = function() {
     }
 
     function calcExtents() {        
-        mins = [+99999, +99999];
-        maxs = [-99999, -99999];
+        mins = [+9999999, +9999999];
+        maxs = [-9999999, -9999999];
 
         for (var i = 0; i < polyVerts.length; i++) {
             var rx = polyVerts[i][0] - coa[0];
