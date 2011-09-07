@@ -156,11 +156,9 @@ App = function() {
         coa[0] = intg[1] / area;
         coa[1] = intg[2] / area;
 
-        // variance
+        // variance & covariance with respect to coa using Parallel Axis Theorem
         variance[0] = intg[3] - area * (coa[0] * coa[0]);
         variance[1] = intg[4] - area * (coa[1] * coa[1]);
-
-        // covariance
         variance[2] = intg[5] - area * (coa[0] * coa[1]);
     }
 
