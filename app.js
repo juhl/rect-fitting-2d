@@ -26,6 +26,8 @@ App = function() {
         canvas.addEventListener("touchend", touchHandler, false);
         canvas.addEventListener("touchmove", touchHandler, false);
         canvas.addEventListener("touchcancel", touchHandler, false);
+
+        updateScreen();
     }
 
     function updateScreen() {
